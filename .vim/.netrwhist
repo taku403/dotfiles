@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/takurou/Dropbox/dotfiles/.vim/usr/autoload/php.vim'
+let g:netrw_dirhist_2='D:/Users/takurou/vimfiles/neobundle.vim.git'
+let g:netrw_dirhist_3='D:/Users/Takurou Nakada/OneDrive/dotfiles/AutoHotkeyFiles/ime/lib'
+let g:netrw_dirhist_4='D:/Users/Takurou Nakada/OneDrive/dotfiles/AutoHotkeyFiles/emacs.ahk-master'
