@@ -443,4 +443,4 @@ fi
 
 #各エイリアスコマンド
 alias ls='ls -F'
-
+alias pbcopy='xsel --clipboard --input'
