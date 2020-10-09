@@ -1,0 +1,22 @@
+@startuml
+title 環境構築をする
+start
+if (引数入力チェック) then (引数が入力されていた場合)
+    :エラーメッセージ:usage関数呼出;
+    end
+else (引数入力なしの場合)
+    if(OSのシステムタイプを取得する) then (コマンド：uname が存在しない)
+        :Error massage：
+        not found command uname;
+        :プログラム終了;
+        end
+    else(コマンド:uname存在)
+        if (ディストリビューション名取得関数の呼出) then(ディストリビューション対応する処理が存在しない)
+            :Error massage:
+            このディストリビューションに対応していません;
+            :プログラム終了;
+            end
+        else(対応する処理が存在)
+            :環境構築関数呼出;
+stop
+@enduml

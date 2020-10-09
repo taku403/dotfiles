@@ -1,0 +1,60 @@
+@startuml
+title 各OSごとの環境構築をする
+
+actor shell as user
+
+box メイン関数 #8899aa
+    participant メイン関数 as main
+end box
+
+box 制御処理関数 #99aabb
+    participant 制御処理関数 as cont
+end box
+box 準備処理 #aabbcc
+    participant 準備処理関数 as prepare
+    participant システム名取得 as get_system_type
+end box
+box 実行処理 #aabbcc
+    participant 実行処理関数 as exec
+    participant 各環境に対応した処理を実行 as exec_sys
+end box
+box 終了処理 #aabbcc
+    participant 後処理関数 as finish
+end box
+
+user -> main : メイン関数()
+activate main
+    main -> cont : 制御処理関数()
+    activate cont
+        cont -> prepare : 準備処理関数()
+        activate prepare
+            prepare ->  get_system_type: システム名取得():String
+            activate get_system_type
+                return システム名: String
+                break OSに対応した処理が存在しない場合
+                    cont <-- prepare : ErrorCode : E040401
+                    user <-- cont : エラーメッセージ：このOSには対応していません
+                end
+            deactivate get_system_type
+            cont <-- prepare: システム名: String
+        deactivate prepare
+        cont -> exec: 実行処理関数(システム名: String)
+        activate exec
+            exec -> exec_sys: 各環境に対応した処理を実行(システム名: String)
+            activate exec_sys
+                return 実行結果
+            deactivate exec_sys
+            cont <-- exec: 実行結果
+        deactivate exec
+        cont -> finish: 終了処理関数()
+        activate finish
+            finish -> finish: 終了メッセージ出力
+            activate finish
+            deactivate finish
+            cont <-- finish: 終了
+        deactivate finish
+        main <-- cont: 終了
+    deactivate cont
+    user <-- main: 終了
+deactivate main
+@enduml

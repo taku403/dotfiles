@@ -1,9 +1,8 @@
-!#/bin/sh
+#!/bin/sh
 
 LANG=C xdg-user-dirs-gtk-update
 
 sudo apt install vim git w3m gcc gauche manpages-ja manpages-ja-dev xseal powertop tlp
-
 #最新のvscodeをインストール
 #作業用のdir
 mkdir ~/tmp
@@ -18,3 +17,13 @@ git --global core.editor /usr/bin/vim
 
 #ubuntuように最適化された省電力アプリをバックグラウンドでスタートする。
 sudo tlp start
+
+
+prepare() {
+    # ubuntu18.04の環境構築の準備理関数
+    
+    
+}
+setup() {
+    
+}

@@ -166,3 +166,56 @@ for email_file in ${email_files}; do
     export EMAIL=$(cat "$email_file")
     break
 done
+
+
+#enyenv
+export PATH=$HOME/.anyenv/bin:$PATH
+#enyenv pyenv and nodenv path
+export PATH=$(anyenv root)/envs/nodenv/bin:$PATH
+export PATH=$(anyenv root)/envs/pyenv/bin:$PATH
+eval "$(pyenv init -)"
+eval "$(nodenv init -)" 
+pyenv shell --unset
+
+
+#python lib path
+#export PYTHONPATH=$PYTHONPATH:/home/takurou/.local/lib/python3.7/site-packages
+
+
+#nodenvの設定
+
+#serverless
+export PATH=$HOME/node_modules/.bin/:$PATH
+
+
+# access key and sercret key
+export AWS_ DEFAULT_ PROFILE=takurou
+export AWS_ACCESS_KEY_ID=AKIAY3ZK37M4U3SZANOI
+export AWS_SECRET_ACCESS_KEY=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
+export AWS_DEFAULT_REGION=ap-northeast-1
+
+
+direnv allow
+eval "$(direnv hook zsh)"
+# direnv設定
+export EDITOR=vim
+
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+
+AWS_ACCESS_KEY_ID=AKIAY3ZK37M4U3SZANOI
+AWS_SECRET_ACCESS_KEY=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
+AWS_PROFILE=takurou
+AWS_REGION=ap-northeast-1
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /home/takurou/projects/pac-serverless/node_modules/tabtab/.completions/serverless.bash ] && . /home/takurou/projects/pac-serverless/node_modules/tabtab/.completions/serverless.bash
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /home/takurou/projects/pac-serverless/node_modules/tabtab/.completions/sls.bash ] && . /home/takurou/projects/pac-serverless/node_modules/tabtab/.completions/sls.bash
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[ -f /home/takurou/projects/pac-serverless/node_modules/tabtab/.completions/slss.bash ] && . /home/takurou/projects/pac-serverless/node_modules/tabtab/.completions/slss.bash
+# export JAVA_HOME=`/usr/libexec/java_home -v 15`
+# export PATH=/home/takurou/projects/pac-serverless/venv/bin:$PATH
+
