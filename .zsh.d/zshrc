@@ -361,7 +361,7 @@ case $(uname) in
 	alias ps="ps -fl -u$(/usr/xpg4/bin/id -un)"
 	;;
     *)
-	alias la="ls -lhAF --color=auto"
+	alias la='ls -lhAF --color=auto --time-style="+%Y-%m-%d %H:%M:%S"'
 	alias ps="ps -fU$(whoami) --forest"
 	;;
 esac
