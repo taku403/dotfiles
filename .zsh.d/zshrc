@@ -1,13 +1,13 @@
 # -*- sh -*-
 #キーレイアウトの設定
-setxkbmap dvorak
+# setxkbmap dvorak
 
 # キーバインド
 ## Emacsキーバインドを使う。
 #bindkey -e
 ## vimキーバインドを使う。
 bindkey -v
-
+fish
 # ディレクトリ移動
 ## ディレクトリ名だけでcdする。
 setopt auto_cd
@@ -387,12 +387,12 @@ alias x="exit"
 ###            -: シンボリックリンク先のパスを評価。
 ###            .: 通常のファイルのみ残す。
 ### 2011-11-06
-alais_files=(~/.zsh.d/zshalias(N-.)
-             ~/.zshalias(N-.))
-for alias_file in ${alias_files}; do
-    source "${alias_file}"
-    break
-done
+# alias_files=(~/.zsh.d/zshalias(N-.)
+#              ~/.zshalias(N-.))
+# for alias_file in ${alias_files}; do
+#     source "${alias_file}"
+#     break
+# done
 
 # ウィンドウタイトル
 ## 実行中のコマンドとユーザ名とホスト名とカレントディレクトリを表示。
@@ -415,33 +415,33 @@ if [ -n "$DISPLAY" ]; then
     preexec_functions=($preexec_functions update_title)
 fi
 ##これより下はtakurouの設定
-bindkey -a 'q' push-line
-bindkey -a 'H' run-help
-autoload history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey "^P" history-beginning-search-backward-end
-bindkey "^N" history-beginning-search-forward-end
-##エイリアスの設定
-alias pd=popd
-alias tgz="tar zxvf"
-#alias emacs='XMODIFIERS=@im=none emacs'
-##
-export LESS='-R'
-export LESSOPEN='| /usr/share/source-highlight/src-hilite-lesspipe.sh%s'
+# bindkey -a 'q' push-line
+# bindkey -a 'H' run-help
+# autoload history-search-end
+# zle -N history-beginning-search-backward-end history-search-end
+# zle -N history-beginning-search-forward-end history-search-end
+# bindkey "^P" history-beginning-search-backward-end
+# bindkey "^N" history-beginning-search-forward-end
+# ##エイリアスの設定
+# alias pd=popd
+# alias tgz="tar zxvf"
+# #alias emacs='XMODIFIERS=@im=none emacs'
+# ##
+# export LESS='-R'
+# export LESSOPEN='| /usr/share/source-highlight/src-hilite-lesspipe.sh%s'
 
-#alias
-export LANGUAGE = en_US.UTF-8
-export LC_ALL = en_US.UTF-8
-export LC_CTYPE = en_US.UTF-8
-export LANG = en_US.UTF-8
+# #alias
+# export LANGUAGE = en_US.UTF-8
+# export LC_ALL = en_US.UTF-8
+# export LC_CTYPE = en_US.UTF-8
+# export LANG = en_US.UTF-8
 
-#nvmの管理
-if [[-f ~/.nvm/nvm.sh]]; then
-	sourc ~/.nvm/nvm.sh
-fi
+# #nvmの管理
+# if [[-f ~/.nvm/nvm.sh]]; then
+# 	sourc ~/.nvm/nvm.sh
+# fi
 
-#各エイリアスコマンド
-alias ls='ls -F'
-alias pbcopy='xsel --clipboard --input'
-source ~/.zsh.d/zshenv
+# #各エイリアスコマンド
+# alias ls='ls -F'
+# alias pbcopy='xsel --clipboard --input'
+# source ~/.zsh.d/zshenv
